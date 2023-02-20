@@ -1,17 +1,16 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import About from '../components/About.astro';
-import Projects from '../components/Projects.astro';
-import Contact from '../components/Contact.astro';
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Projects from "../components/Projects.astro";
+import Contact from "../components/Contact.astro";
 ---
 
 <Layout title="Benhatsdrauf">
-	<main>
-		<Hero/>
-		<About/>
-		<Projects/>
-		<Contact/>
-	</main>
+  <main class="scroll-smooth snap-mandatory snap-y h-screen overflow-scroll">
+    <Hero />
+    <About />
+    <Projects />
+    <Contact />
+  </main>
 </Layout>
-
