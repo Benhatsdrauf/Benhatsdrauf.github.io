@@ -7,7 +7,7 @@ const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="bg-white dark:bg-slate-800 text-black dark:text-white">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -15,8 +15,42 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body>
+  <body class="bg-white dark:bg-slate-800 text-black dark:text-white">
+    <div class="absolute top-0 left-40">
+      <p>Benhatsdrauf</p>
+    </div>
+    <div class="absolute top-0 right-40">
+      <button id="themeToggle">Toggle</button>
+    </div>
     <slot />
   </body>
 </html>
 <style is:global></style>
+
+<script>
+  // on initial load check for localStorage or prefers-color-scheme
+  if (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    document.documentElement.classList.add("dark");
+    localStorage.theme = "dark";
+  } else {
+    document.documentElement.classList.remove("dark");
+    localStorage.theme = "light";
+  }
+
+  // add eventListener to toggleButton and let user toggle theme and save in local storages
+  const themeToggle = document.getElementById("themeToggle");
+  themeToggle?.addEventListener("click", () => {
+    console.log("this is toggeling");
+    if (localStorage.getItem("theme") === "dark") {
+      document.documentElement.classList.remove("dark");
+      localStorage.theme = "light";
+    } else {
+      document.documentElement.classList.add("dark");
+      localStorage.theme = "dark";
+    }
+  });
+</script>
