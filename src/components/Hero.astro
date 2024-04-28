@@ -5,9 +5,9 @@
   class="m-auto p-10 min-h-screen snap-start font-bold text-2xl sm:text-5xl"
 >
   <div
-    class="flex flex-col justify-center gap-16 pt-10 sm:flex-row sm:gap-40 sm:pt-20"
+    class="flex flex-row  pt-10 sm:flex-row sm:gap-40 sm:pt-20"
   >
-    <div class="flex-col self-center">
+    <div class="flex-col flex-shrink-0 self-center">
       <h1>
         Hi! I'm <span
           class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-cyan-600"
@@ -15,15 +15,33 @@
         >,
       </h1>
       <h1>
-        <span class="text-gradient">Frontend Developer</span>
+        <span id="typeWriter" class="text-gradient">Frontend Developer</span>
       </h1>
     </div>
-    <div>
-      <img src="/undraw_coding.svg" class="h-44" />
-    </div>
-    <div class="self-center flex flex-col gap-4 sm:gap-8 sm:hidden">
-      <span class="text-sm sm:text-base">Scroll</span>
-      <span class="animate-bounce self-center">&darr;</span>
-    </div>
+
+  </div>
+     
+  <div class="flex flex-col mt-24 sm:gap-8 ">
+    <span class="text-sm text-center sm:text-base">Scroll</span>
+    <span class="animate-bounce self-center">&darr;</span>
   </div>
 </section>
+
+<script>
+ import Typewriter from 'typewriter-effect/dist/core';
+  var TypeWriter = document.getElementById('typeWriter');
+
+
+var typewriter = new Typewriter(TypeWriter, {
+
+  delay: 200,
+});
+
+typewriter
+  .typeString('Frontend Developer')
+  .pauseFor(500)
+  .deleteAll()
+  .typeString('Fullstack Developer')
+  .pauseFor(500)
+  .start()
+</script>

@@ -13,13 +13,11 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
     <title>{title}</title>
   </head>
   <body class="bg-white dark:bg-slate-800 text-black dark:text-white">
-    <div class="absolute top-0 left-0">
-      <p>Benhatsdrauf</p>
-    </div>
-    <div class="absolute top-0 right-0">
+    <div class="absolute top-5 right-10">
       <button id="themeToggle">Toggle</button>
     </div>
     <slot />
